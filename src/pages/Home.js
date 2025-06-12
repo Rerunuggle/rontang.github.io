@@ -13,7 +13,6 @@ const Home = () => {
                     </p>
                     <div className="hero-buttons">
                         <a href="/permucards" className="btn btn-primary">Play Some Cards?</a>
-                        <a href="/contact" className="btn btn-secondary">Contact Me</a>
                     </div>
                 </div>
             </div>

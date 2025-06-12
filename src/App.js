@@ -8,7 +8,6 @@ import About from './pages/About';
 import Experience from './pages/Experience';
 import Projects from './pages/Projects';
 import Skills from './pages/Skills';
-import Contact from './pages/Contact';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import PermuCards from './pages/PermuCards';
@@ -49,7 +48,6 @@ function App() {
               <Route path="/experience" element={<Experience />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/skills" element={<Skills />} />
-              <Route path="/contact" element={<Contact />} />
               <Route path="/permucards" element={<PermuCards />} />
             </Routes>
           </div>

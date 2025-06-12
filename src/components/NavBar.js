@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FaHome, FaUser, FaBriefcase, FaCode, FaCogs, FaGamepad, FaEnvelope } from 'react-icons/fa';
+import { FaHome, FaUser, FaBriefcase, FaCode, FaCogs, FaGamepad } from 'react-icons/fa';
 import profileImage from '../assets/images/me.jpg';
 
 const NavBar = ({ navbarCollapsed, setNavbarCollapsed }) => {
@@ -98,12 +98,6 @@ const NavBar = ({ navbarCollapsed, setNavbarCollapsed }) => {
                         <Link to="/permucards" className="nav-link">
                             <FaGamepad className="nav-icon" />
                             <span className="nav-text">PermuCards</span>
-                        </Link>
-                    </li>
-                    <li className={`nav-item ${isActive('/contact') ? 'active' : ''}`}>
-                        <Link to="/contact" className="nav-link">
-                            <FaEnvelope className="nav-icon" />
-                            <span className="nav-text">Contact</span>
                         </Link>
                     </li>
                 </ul>
