@@ -925,31 +925,6 @@ const PermuCards = () => {
   );
 };
 
-const Grid = ({ gridData, onDrop, area, columns, rows }) => (
-  <div 
-    className={`${area}-grid`}
-    style={{
-      display: 'grid',
-      gridTemplateColumns: `repeat(${columns}, 1fr)`,
-      gridTemplateRows: `repeat(${rows}, 1fr)`,
-      gap: '2px'
-    }}
-  >
-    {gridData.map((row, rowIndex) => (
-      row.map((card, colIndex) => (
-        <CardSlot
-          key={`${area}-slot-${rowIndex}-${colIndex}`}
-          row={rowIndex}
-          col={colIndex}
-          card={card}
-          onDrop={onDrop}
-          area={area}
-        />
-      ))
-    ))}
-  </div>
-);
-
 export default PermuCards;
 
 

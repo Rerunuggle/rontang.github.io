@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FaHome, FaUser, FaBriefcase, FaCode, FaCogs, FaGamepad, FaEnvelope } from 'react-icons/fa';
+import profileImage from '../assets/images/me.jpg';
 
 const NavBar = ({ navbarCollapsed, setNavbarCollapsed }) => {
     const location = useLocation();
@@ -54,7 +55,7 @@ const NavBar = ({ navbarCollapsed, setNavbarCollapsed }) => {
                 <div className="profile-image-container">
                     <Link to="/">
                         <img 
-                            src="/images/me.jpg" 
+                            src={profileImage} 
                             alt="Ron Tang" 
                             className="profile-image" 
                         />
