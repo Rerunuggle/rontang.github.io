@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/rontang.github.io/static/css/main.c845a9a7.css",
+    "main.js": "/rontang.github.io/static/js/main.b5d26b5e.js",
+    "index.html": "/rontang.github.io/index.html",
+    "main.c845a9a7.css.map": "/rontang.github.io/static/css/main.c845a9a7.css.map",
+    "main.b5d26b5e.js.map": "/rontang.github.io/static/js/main.b5d26b5e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c845a9a7.css",
+    "static/js/main.b5d26b5e.js"
+  ]
+}
