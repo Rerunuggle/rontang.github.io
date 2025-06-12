@@ -44,4 +44,4 @@ Deploys the app to GitHub Pages
 
 ## Deployment
 
-This site is deployed on GitHub Pages. Visit [https://YOUR_GITHUB_USERNAME.github.io/my-web](https://YOUR_GITHUB_USERNAME.github.io/my-web) to see it live.
+This site is deployed on GitHub Pages. Visit [https://rerunuggle.github.io/my-web](https://rerunuggle.github.io/my-web) to see it live.
