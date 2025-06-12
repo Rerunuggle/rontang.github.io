@@ -1,0 +1,42 @@
+Ron TANG
+M: +61 452 433 081         E: ronge1135783290@gmail.com
+Education
+2020 – 2024		Bachelor of Engineering (Software), University of Sydney
+2017 – 2019		Bonnyrigg High School, Sydney
+
+Project Experience
+Highly Cited Researcher Prediction Modelling
+University of Sydney - Advanced Analytics and Planning
+Aug 2023 – Oct 2023
+•	Collaborated with a diverse team to design and implement a predictive model for identifying future Clarivate Highly Cited Researchers with agile methodologies.
+•	Applied and evaluated multiple supervised learning algorithms, including Random Forest, Gradient Boosting, Support Vector Machine, and Decision Tree classifiers.
+•	Took primary responsibility for data preprocessing, outlier detection, and pruning to elevate model reliability and performance.
+•	Tuned hyperparameters and optimised the Gradient Boosting model to maximise predictive performance.
+•	Achieved a final model accuracy of 87%.
+
+Canine Heart & Lung Auscultation Model
+Jacaranda Flame Consulting – University of Sydney, School of Veterinary Science
+Jun 2024 – Jul 2024
+•	Collaborated with a multidisciplinary team to enhance a canine auscultation training model for the School of Veterinary Science with agile methodologies.
+•	Contributed to full-stack development, including a USYD-branded website for project presentation, application distribution, and website deployment on GitHub.
+•	Implemented Bluetooth communication protocols to communicate with custom hardware, including an Arduino R4 Wi-Fi board and bone conduction speakers.
+•	Delivered a functional and affordable canine model with 90% lower cost.
+
+Data-Driven Optimal Power Flow for Islanded Microgrids
+University of Sydney
+Mar 2024 – Nov 2024
+•	Conducted a thesis project focused on developing a data-driven approach to Optimal Power Flow in islanded microgrids. The aim was to provide real-time and reliable solutions for the unstable and fluctuating power conditions introduced by the renewable microturbines.
+•	Applied advanced reinforcement learning algorithms including MACPO (Multi-Agent Constrained Policy Optimisation) and SAC (Soft Actor-Critic) to model under operational constraints.
+•	Demonstrated significant performance and computational efficiency compared to traditional OPF solutions.
+•	Gained concrete experience in the implementation, tuning, and deployment of machine learning algorithms in power systems, including environment simulation, policy evaluation, and multi-constraint handling.
+•	Acquired proficiency in cross-domain integration of ML methods into real-world engineering problem.
+
+Skills
+•	Proficient in Java, Python. Solid experience in C
+•	In-depth knowledge in Object-Oriented Programming and Agile development
+•	Proficient in testing and debugging
+•	Solid data structure and algorithm practice 
+•	Strong operating system knowledge.
+•	Proficient in full-stack development
+•	Strong knowledge of Linux environment
+•	Proficient in Machine Learning

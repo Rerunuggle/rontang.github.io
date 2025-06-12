@@ -1,0 +1,123 @@
+.card-slot {
+  width: 42px;
+  height: 60px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.03);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s ease;
+}
+
+.card-slot.empty {
+  border: 1px dashed #ccc;
+}
+
+.card-slot.occupied {
+  border: none;
+  background-color: transparent;
+}
+
+.card-slot.drag-over {
+  background-color: rgba(0, 0, 0, 0.05);
+  border: 1px dashed #999;
+}
+
+.card-slot.valid-drop {
+  background-color: rgba(46, 204, 113, 0.1);
+  border: 1px dashed #2ecc71;
+}
+
+/* Hand slot specific styles */
+.card-slot.hand-slot.empty {
+  border: 1px dashed #99c2ff;
+  background-color: rgba(0, 123, 255, 0.03);
+}
+
+.card-slot.hand-slot.drag-over {
+  background-color: rgba(0, 123, 255, 0.08);
+  border: 1px dashed #3498db;
+}
+
+.slot-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.card-slot.hand-slot .slot-indicator {
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+.card-slot.drag-over .slot-indicator {
+  width: 14px;
+  height: 14px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.card-slot.hand-slot.drag-over .slot-indicator {
+  background-color: rgba(0, 123, 255, 0.2);
+}
+
+.play-area-grid {
+  display: grid !important;
+  grid-template-columns: repeat(20, 1fr) !important;
+  grid-template-rows: repeat(6, 1fr) !important;
+  gap: 3px !important;
+  padding: 12px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  overflow-x: auto;
+  min-height: 400px;
+}
+
+@media (max-width: 1400px) {
+  .play-area-grid {
+    grid-template-columns: repeat(16, 1fr) !important;
+  }
+}
+
+@media (max-width: 1100px) {
+  .play-area-grid {
+    grid-template-columns: repeat(12, 1fr) !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .play-area-grid {
+    grid-template-columns: repeat(10, 1fr) !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .play-area-grid {
+    grid-template-columns: repeat(8, 1fr) !important;
+  }
+}
+
+@media (max-width: 500px) {
+  .play-area-grid {
+    grid-template-columns: repeat(6, 1fr) !important;
+  }
+  
+  .card-slot {
+    width: 35px;
+    height: 52px;
+  }
+}
+
+.card-slot-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 

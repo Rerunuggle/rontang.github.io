@@ -1,0 +1,199 @@
+.card {
+  width: 38px;
+  height: 58px;
+  border-radius: 5px;
+  background-color: white;
+  position: relative;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 4px;
+  box-sizing: border-box;
+  cursor: grab;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  user-select: none;
+  margin: 2px;
+  z-index: 1;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+.card.dragging {
+  opacity: 0.7;
+  transform: scale(1.05);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+  cursor: grabbing;
+  z-index: 1000;
+}
+
+/* Card colors */
+.card-red {
+  border: 1px solid #ee4400;
+  color: #ee4400;
+}
+
+.card-blue {
+  border: 1px solid #00bbee;
+  color: #00bbee;
+}
+
+.card-yellow {
+  border: 1px solid #f1c40f;
+  color: #f1c40f;
+}
+
+.card-black {
+  border: 1px solid #2c3e50;
+  color: #2c3e50;
+}
+
+.card-wild {
+  background-image: linear-gradient(135deg, 
+                    rgba(231, 76, 60, 0.85), 
+                    rgba(241, 196, 15, 0.85),
+                    rgba(0, 187, 238, 0.85),
+                    rgba(44, 62, 80, 0.85));
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.7);
+}
+
+.card-wild .card-value,
+.card-wild .card-symbol {
+  font-weight: bold;
+  background: white;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: none;
+  border-radius: 2px;
+  padding: 1px;
+}
+
+/* Card corners */
+.card-corner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.top-left {
+  align-self: flex-start;
+}
+
+.bottom-right {
+  align-self: flex-end;
+  transform: rotate(180deg);
+}
+
+.card-value {
+  font-size: 8px;
+  font-weight: bold;
+}
+
+/* Card center */
+.card-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.card-symbol {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Drag and drop related styles */
+.card-in-slot {
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 38px;
+  height: 58px;
+}
+
+/* Card stack/pile styles - keep but adapt for play area */
+.card-stack {
+  position: relative;
+  width: 43px;
+  height: 62px;
+  margin: 3px;
+}
+
+.card-stack .card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+}
+
+/* Hand area specific styles */
+.draw-area {
+  min-height: 50px;
+  background-color: #f1f8ff;
+  border-radius: 8px;
+  padding: 0.75rem;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+/* Game areas */
+.play-area, .draw-area {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 15px;
+  min-height: 150px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+  margin: 15px 0;
+}
+
+.play-area {
+  min-height: 400px;
+}
+
+/* Card groups in play area */
+.card-group {
+  display: flex;
+  margin: 10px;
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+  min-width: 90px;
+  min-height: 130px;
+}
+
+/* Empty slot indicator */
+.empty-slot {
+  width: 80px;
+  height: 120px;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+}
+
+.empty-slot:hover {
+  border-color: #999;
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* breakpoints.css */
+:root {
+  --breakpoint-xl: 1400px;
+  --breakpoint-lg: 1100px;
+  --breakpoint-md: 900px;
+  --breakpoint-sm: 700px;
+  --breakpoint-xs: 500px;
+} 
