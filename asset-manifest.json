@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/rontang.github.io/static/css/main.c845a9a7.css",
-    "main.js": "/rontang.github.io/static/js/main.268b28b3.js",
+    "main.js": "/rontang.github.io/static/js/main.d2886b66.js",
     "static/media/me.jpg": "/rontang.github.io/static/media/me.b7fcf3eafa7666e64c85.jpg",
     "index.html": "/rontang.github.io/index.html",
     "main.c845a9a7.css.map": "/rontang.github.io/static/css/main.c845a9a7.css.map",
-    "main.268b28b3.js.map": "/rontang.github.io/static/js/main.268b28b3.js.map"
+    "main.d2886b66.js.map": "/rontang.github.io/static/js/main.d2886b66.js.map"
   },
   "entrypoints": [
     "static/css/main.c845a9a7.css",
-    "static/js/main.268b28b3.js"
+    "static/js/main.d2886b66.js"
   ]
 }
