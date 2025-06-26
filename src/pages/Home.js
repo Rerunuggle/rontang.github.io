@@ -12,7 +12,7 @@ const Home = () => {
                         experience in full-stack development, machine learning, and data analysis.
                     </p>
                     <div className="hero-buttons">
-                        <a href="/permucards" className="btn btn-primary">Play Some Cards?</a>
+                        <a href="/permucards" className="btn btn-primary">Try my card game!</a>
                     </div>
                 </div>
             </div>

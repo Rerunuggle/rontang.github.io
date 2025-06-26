@@ -29,6 +29,20 @@ const PermuCards = () => {
     document.title = "Ron Tang";
   }, []);
 
+  // Show notification and re-initialize game
+  const showNotificationAndRestart = (message, isSuccess = true) => {
+    // Show notification
+    if (isSuccess) {
+      alert(`🎉 ${message} 🎉\n\nStarting a new game!`);
+    } else {
+      alert(`😔 ${message} 😔\n\nStarting a new game!`);
+    }
+    
+    // Re-initialize the game after a short delay
+    setTimeout(() => {
+      initializeGame();
+    }, 100);
+  };
 
   function createEmptyGrid(rows, cols) {
     const grid = [];
@@ -49,12 +63,14 @@ const PermuCards = () => {
     
     let newDeck = [];
     
-    // Add regular cards
-    colors.forEach(color => {
-      values.forEach(value => {
-        newDeck.push({ id: `${color}-${value}`, color, value });
+    // Add regular cards (2 decks worth)
+    for (let deck = 0; deck < 2; deck++) {
+      colors.forEach(color => {
+        values.forEach(value => {
+          newDeck.push({ id: `${color}-${value}-${deck}`, color, value });
+        });
       });
-    });
+    }
     
     // Add wild cards
     newDeck.push({ id: 'wild-1', color: 'wild', value: '' });
@@ -117,7 +133,7 @@ const PermuCards = () => {
   // Draw a card from the deck
   const drawCard = () => {
     if (deck.length === 0) {
-      setMessage('No more cards in the deck!');
+      showNotificationAndRestart('Game Over! No more cards in the deck and you cannot play all your cards.', false);
       return;
     }
     
@@ -148,6 +164,12 @@ const PermuCards = () => {
               placed = true;
             }
           }
+        }
+        
+        // If we couldn't place a card, the hand is full
+        if (!placed) {
+          showNotificationAndRestart('Game Over! Your hand is full and you cannot play any more cards.', false);
+          return;
         }
       }
       
@@ -186,7 +208,7 @@ const PermuCards = () => {
         setMessage('Drew a new card');
       }
     } else {
-      setMessage('Your hand is full! Play some cards first.');
+      showNotificationAndRestart('Game Over! Your hand is full and you cannot play any more cards.', false);
     }
   };
 
@@ -248,7 +270,7 @@ const PermuCards = () => {
         target: { row, col }
       }]);
       
-      setMessage('Card moved to play area');
+      setMessage('Card moved to table');
     } 
     // Handle card from play area (repositioning)
     else if (source === 'playArea') {
@@ -258,26 +280,25 @@ const PermuCards = () => {
       const card = playArea[sourcePos.row][sourcePos.col];
       if (!card) return;
       
-      // Check if the card is part of a validated group
-      const isCardValidated = validatedGroups.some(group => 
-        group.some(validatedCard => 
-          validatedCard.position.row === sourcePos.row && 
-          validatedCard.position.col === sourcePos.col
-        )
-      );
-      
-      // If the card is part of a validated group, don't allow moving it
-      if (isCardValidated) {
-        setMessage('This card is part of a valid group and cannot be moved');
-        return;
-      }
-      
       // Update play area
       const newPlayArea = [...playArea];
       newPlayArea[sourcePos.row][sourcePos.col] = null;
       newPlayArea[row][col] = { ...card, position: { row, col, area: 'playArea' } };
       
+      // Update validated groups to reflect the new position
+      const newValidatedGroups = validatedGroups.map(group => 
+        group.map(validatedCard => {
+          if (validatedCard.position.row === sourcePos.row && 
+              validatedCard.position.col === sourcePos.col &&
+              validatedCard.id === card.id) {
+            return { ...validatedCard, position: { row, col, area: 'playArea' } };
+          }
+          return validatedCard;
+        })
+      );
+      
       setPlayArea(newPlayArea);
+      setValidatedGroups(newValidatedGroups);
       setMessage('Card repositioned');
     }
   };
@@ -304,8 +325,9 @@ const PermuCards = () => {
       // Check if the card is part of a validated group
       const isCardValidated = validatedGroups.some(group => 
         group.some(validatedCard => 
-          validatedCard.position.row === sourcePos.row && 
-          validatedCard.position.col === sourcePos.col
+          (validatedCard.position.row === sourcePos.row && 
+           validatedCard.position.col === sourcePos.col) ||
+          validatedCard.id === card.id
         )
       );
       
@@ -384,6 +406,12 @@ const PermuCards = () => {
             }
           }
         }
+        
+        // If we couldn't place a card, the hand is full
+        if (!placed) {
+          showNotificationAndRestart('Game Over! Your hand is full and you cannot play any more cards.', false);
+          return;
+        }
       }
       
       setHandArea(newHandArea);
@@ -409,11 +437,12 @@ const PermuCards = () => {
     setCardsPlayedThisRound(0);
     setCardsPlayedPositions([]);
     setPreviousPlayArea(JSON.parse(JSON.stringify(playArea)));
-    setMessage('Drag cards to the play area');
+    setMessage('Well done! Continue...');
     
     // Check win condition
     if (countCardsInHand() === 0) {
-      setMessage('Congratulations! You have played all your cards!');
+      showNotificationAndRestart('Congratulations! You have played all your cards!', true);
+      return;
     }
   };
 
@@ -908,17 +937,21 @@ const PermuCards = () => {
       </div>
       
       <div className="game-rules">
-        <h3>Game Rules</h3>
+        <h3>Rules</h3>
         <ul>
-          <li>Same color cards must form a sequence of 3 or more (e.g., Blue 1-2-3)</li>
-          <li>Different color cards must have the same value and consist of 3 or more cards (e.g., Red 5, Blue 5, Yellow 5)</li>
-          <li>Wild cards can substitute for any card in a sequence or group (e.g., Red 9, Wild, Red J, Red Q)</li>
-          <li>Wild cards can be moved and reused in different combinations</li>
-          <li>Drag cards from your hand to the play area</li>
-          <li>Rearrange cards in the play area to form valid groups</li>
-          <li>Click "End Round" to validate your play and move to the next round</li>
-          <li>Each round you must either play at least one card or draw a card</li>
-          <li>Try to play all your cards!</li>
+          <li>The aim is to play all the cards in your hand.</li>
+          <li>The game is running by rounds, for each round you need to play at least one card or draw a card.</li>
+          <li>Drag the cards from your hand to the table to play them.</li>
+          <li>The cards need to form a valid group to stay on the table.</li>
+          <li>
+            The definition of "valid group" is similar to the classic <a href="https://en.wikipedia.org/wiki/Mahjong" target="_blank" rel="noopener noreferrer">Mahjong</a>, a traditional Chinese tile-based game.
+          </li>
+          <li>Rule 1: Same colour cards must form a sequence of 3 or more (e.g., Blue 1-2-3).</li>
+          <li>Rule 2: Different colour cards must have the same value and consist of 3 or more cards (e.g., Red 5, Blue 5, Yellow 5).</li>
+          <li>Wild cards can substitute for any card in any group.</li>
+          <li>The fun part is that the cards on the table can be moved and reused in different combinations, in some cases you need to recombine dozens of cards to play one.</li>
+          <li>Cards that form valid groups can be moved around on the table but cannot be moved back to your hand.</li>
+          <li>The complete set consists of 104 cards, formed by 2 standard decks. Each deck includes the sequence from Ace to King across all four colour suits, in addition to two wild cards</li>
         </ul>
       </div>
     </div>
