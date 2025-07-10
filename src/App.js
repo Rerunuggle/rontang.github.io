@@ -14,7 +14,8 @@ import PermuCards from './pages/PermuCards';
 
 function App() {
   const [navbarCollapsed, setNavbarCollapsed] = useState(false);
-  
+  const basename = process.env.NODE_ENV === 'production' ? '/rontang.github.io' : '';
+
   // Set default collapsed state based on screen width on initial load
   useEffect(() => {
     const handleResize = () => {
@@ -37,7 +38,7 @@ function App() {
   }, []);
   
   return (
-    <Router>
+    <Router basename={basename}>
       <div className="App">
         <NavBar navbarCollapsed={navbarCollapsed} setNavbarCollapsed={setNavbarCollapsed} />
         <div className={`main-content ${navbarCollapsed ? 'collapsed' : ''}`}>
