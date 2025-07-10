@@ -702,6 +702,16 @@ ul {
 /* Mobile Menu Toggle - Now removed from HTML */
 .mobile-menu-toggle {
   display: none;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1001;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .menu-icon {
@@ -773,22 +783,26 @@ ul {
 
 @media (max-width: 768px) {
   .mobile-menu-toggle {
-    display: none;
+    display: block;
   }
   
   .navbar.vertical {
     position: fixed;
-    width: 250px;
+    width: 200px;
     height: 100vh;
     padding: 1rem 0;
     z-index: 1000;
     transition: transform 0.3s ease;
+    transform: translateX(-100%);
+  }
+  
+  .navbar.vertical.mobile-open {
     transform: translateX(0);
   }
   
   .navbar.vertical.collapsible.collapsed {
-    transform: translateX(-200px);
-    width: 250px;
+    transform: translateX(-100%);
+    width: 200px;
   }
   
   .navbar-container.vertical {
@@ -816,11 +830,11 @@ ul {
     padding: 0;
   }
   
+  .main-content,
   .main-content.collapsed {
-    margin-left: 50px;
-    width: calc(100% - 50px);
+    margin-left: 0;
+    width: 100%;
   }
-  
   .page-container {
     padding: 1rem;
   }
@@ -833,6 +847,20 @@ ul {
   
   .collapse-toggle {
     display: none;
+  }
+  .mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+    display: none;
+  }
+  
+  .mobile-overlay.active {
+    display: block;
   }
 }
 
