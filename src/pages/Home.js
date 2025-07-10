@@ -7,10 +7,10 @@ const Home = () => {
             <div className="hero-section">
                 <div className="hero-content">
                     <h1>Ron Tang</h1>
-                    <h2>Software Engineer</h2>
+                    <h3>Aspiring Software Engineer | Full-Stack development Enthusiast | Junior Developer with Ambitions</h3>
                     <p className="hero-description">
                         Bachelor of Engineering (Software) graduate from the University of Sydney with 
-                        experience in full-stack development, machine learning, and data analysis.
+                        academic and project-based experience in full-stack development, machine learning, backend development, and data analysis.
                     </p>
                     <div className="hero-buttons">
                         <Link to="/permucards" className="btn btn-primary">Try my card game!</Link>

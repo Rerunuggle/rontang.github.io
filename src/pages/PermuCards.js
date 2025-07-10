@@ -943,9 +943,7 @@ const PermuCards = () => {
           <li>The game is running by rounds, for each round you need to play at least one card or draw a card.</li>
           <li>Drag the cards from your hand to the table to play them.</li>
           <li>The cards need to form a valid group to stay on the table.</li>
-          <li>
-            The definition of "valid group" is similar to the classic <a href="https://en.wikipedia.org/wiki/Mahjong" target="_blank" rel="noopener noreferrer">Mahjong</a>, a traditional Chinese tile-based game.
-          </li>
+          <li>The rule is based on the classic <a href="https://en.wikipedia.org/wiki/Rummikub" target="_blank" rel="noopener noreferrer">Rummikub</a>. </li>
           <li>Rule 1: Same colour cards must form a sequence of 3 or more (e.g., Blue 1-2-3).</li>
           <li>Rule 2: Different colour cards must have the same value and consist of 3 or more cards (e.g., Red 5, Blue 5, Yellow 5).</li>
           <li>Wild cards can substitute for any card in any group.</li>
