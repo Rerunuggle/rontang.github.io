@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
     return (
@@ -12,7 +13,7 @@ const Home = () => {
                         experience in full-stack development, machine learning, and data analysis.
                     </p>
                     <div className="hero-buttons">
-                        <a href="/permucards" className="btn btn-primary">Try my card game!</a>
+                        <Link to="/permucards" className="btn btn-primary">Try my card game!</Link>
                     </div>
                 </div>
             </div>
@@ -37,7 +38,7 @@ const Home = () => {
                     <div className="summary-section">
                         <h3>Project</h3>
                         <p>Data-Driven Optimal Power Flow for Islanded Microgrids</p>
-                        <a href="/projects" className="link-more">See all projects →</a>
+                        <Link to="/projects" className="link-more">See all projects</Link>
                     </div>
                 </div>
             </div>
